@@ -7,7 +7,10 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface FKDaylightCalculcatorTests : SenTestCase
+@interface FKDaylightCalculcatorTests : SenTestCase {
+    
+}
 
 @end

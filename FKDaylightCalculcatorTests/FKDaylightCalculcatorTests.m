@@ -7,26 +7,32 @@
 //
 
 #import "FKDaylightCalculcatorTests.h"
+#import "FKDaylightCalculator.h"
 
 @implementation FKDaylightCalculcatorTests
 
-- (void)setUp
-{
-    [super setUp];
+- (void) testAlgorithmExample {
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDateComponents *inputDateComponents = [calendar components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate:[NSDate date]];
+    inputDateComponents.year = 1990;
+	inputDateComponents.day = 25;
+	inputDateComponents.month = 6;
+	inputDateComponents.hour = 12;
+	inputDateComponents.minute = 0;
     
-    // Set-up code here.
-}
+    NSDateComponents *outputDateComponents = [calendar components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate:[NSDate date]];
+    outputDateComponents.year = 1990;
+	outputDateComponents.day = 25;
+	outputDateComponents.month = 6;
+	outputDateComponents.hour = 5;
+	outputDateComponents.minute = 26;
+        
+    FKDaylightCalculator *calculator = [FKDaylightCalculator daylightCalculatorWithCoordinate:CLLocationCoordinate2DMake(40.9, -74.3)];
+    NSDate *calculatedDate = [calculator sunriseForDate:[calendar dateFromComponents:inputDateComponents]];
+    NSDate *desiredOutputDate = [calendar dateFromComponents:outputDateComponents];
 
-- (void)tearDown
-{
-    // Tear-down code here.
-    
-    [super tearDown];
-}
-
-- (void)testExample
-{
-    STFail(@"Unit tests are not implemented yet in FKDaylightCalculcatorTests");
+    if (abs([calculatedDate timeIntervalSinceDate:desiredOutputDate]) > 60 * 15)
+        STFail(@"Daylight calculator is not working correctly! Difference between desired and calculated output is too big. (More than 15 minutes)");
 }
 
 @end
