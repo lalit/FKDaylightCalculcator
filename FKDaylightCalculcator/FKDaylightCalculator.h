@@ -76,7 +76,7 @@ typedef NSInteger FKDaylightCalculatorZenith;
  *  initWithCoordinate:zenith:
  *
  *  Discussion:
- *    Use this initializer method to create an instance of the FKDaylightCalculator class.
+ *    Use this initializer method to create an instance of the FKDaylightCalculator class. Throws an exception if the coordinate passed is invalid.
  *
  *  Parameters:
  *    coordinate:

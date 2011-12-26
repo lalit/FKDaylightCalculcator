@@ -20,7 +20,7 @@
 
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
-    self.locationManager.distanceFilter = 10000;
+    self.locationManager.distanceFilter = kCLLocationAccuracyThreeKilometers;
     [self.locationManager startUpdatingLocation];
     
     FKDaylightCalculator *cupertinoDaylightCalculator = [FKDaylightCalculator daylightCalculatorWithCoordinate:CLLocationCoordinate2DMake(37.33233141, -122.03121860)];

@@ -50,10 +50,14 @@
 }
 
 - (id) initWithCoordinate:(CLLocationCoordinate2D)aCoordinate zenith:(FKDaylightCalculatorZenith)aZenith {
+    if (CLLocationCoordinate2DIsValid != NULL)
+        NSParameterAssert(CLLocationCoordinate2DIsValid(aCoordinate));
+    
 	if (self = [super init]) {
-		coordinate = aCoordinate;
-		zenith = aZenith;
+        self.coordinate = aCoordinate;
+        self.zenith = aZenith;
 	}
+    
 	return self;
 }
 
@@ -140,6 +144,8 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 - (NSDate *) dateOfSunriseOrSunset:(BOOL)sunriseOrSunset forDate:(NSDate *)date {
+    NSParameterAssert(date != nil);
+    
     // (0.) convert date in NSDateComponents
     
 	NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
