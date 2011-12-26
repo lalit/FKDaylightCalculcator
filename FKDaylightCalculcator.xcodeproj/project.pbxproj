@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4B2B62CF14A8E6BF0003EA38 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2B62CE14A8E6BE0003EA38 /* UIKit.framework */; };
+		4B2B62D114A8E6BF0003EA38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2B62D014A8E6BF0003EA38 /* Foundation.framework */; };
+		4B2B62D314A8E6BF0003EA38 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2B62D214A8E6BF0003EA38 /* CoreGraphics.framework */; };
+		4B2B62D914A8E6BF0003EA38 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B2B62D714A8E6BF0003EA38 /* InfoPlist.strings */; };
+		4B2B62DB14A8E6BF0003EA38 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B2B62DA14A8E6BF0003EA38 /* main.m */; };
+		4B2B62DF14A8E6BF0003EA38 /* FKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B2B62DE14A8E6BF0003EA38 /* FKAppDelegate.m */; };
+		4B2B62E714A8E6BF0003EA38 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2B62E614A8E6BF0003EA38 /* SenTestingKit.framework */; };
+		4B2B62E814A8E6BF0003EA38 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2B62CE14A8E6BE0003EA38 /* UIKit.framework */; };
+		4B2B62E914A8E6BF0003EA38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2B62D014A8E6BF0003EA38 /* Foundation.framework */; };
+		4B2B62F114A8E6BF0003EA38 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B2B62EF14A8E6BF0003EA38 /* InfoPlist.strings */; };
+		4B2B62F414A8E6BF0003EA38 /* FKDaylightCalculcatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B2B62F314A8E6BF0003EA38 /* FKDaylightCalculcatorTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4B2B62EA14A8E6BF0003EA38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B2B62C114A8E6BE0003EA38 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B2B62C914A8E6BE0003EA38;
+			remoteInfo = FKDaylightCalculcator;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4B2B62CA14A8E6BE0003EA38 /* FKDaylightCalculcator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FKDaylightCalculcator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B2B62CE14A8E6BE0003EA38 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4B2B62D014A8E6BF0003EA38 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4B2B62D214A8E6BF0003EA38 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4B2B62D614A8E6BF0003EA38 /* FKDaylightCalculcator-Info.plist */ = {isa = PBXFileReference; path = "FKDaylightCalculcator-Info.plist"; sourceTree = "<group>"; };
+		4B2B62D814A8E6BF0003EA38 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4B2B62DA14A8E6BF0003EA38 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4B2B62DC14A8E6BF0003EA38 /* FKDaylightCalculcator-Prefix.pch */ = {isa = PBXFileReference; path = "FKDaylightCalculcator-Prefix.pch"; sourceTree = "<group>"; };
+		4B2B62DD14A8E6BF0003EA38 /* FKAppDelegate.h */ = {isa = PBXFileReference; path = FKAppDelegate.h; sourceTree = "<group>"; };
+		4B2B62DE14A8E6BF0003EA38 /* FKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FKAppDelegate.m; sourceTree = "<group>"; };
+		4B2B62E514A8E6BF0003EA38 /* FKDaylightCalculcatorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FKDaylightCalculcatorTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B2B62E614A8E6BF0003EA38 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		4B2B62EE14A8E6BF0003EA38 /* FKDaylightCalculcatorTests-Info.plist */ = {isa = PBXFileReference; path = "FKDaylightCalculcatorTests-Info.plist"; sourceTree = "<group>"; };
+		4B2B62F014A8E6BF0003EA38 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4B2B62F214A8E6BF0003EA38 /* FKDaylightCalculcatorTests.h */ = {isa = PBXFileReference; path = FKDaylightCalculcatorTests.h; sourceTree = "<group>"; };
+		4B2B62F314A8E6BF0003EA38 /* FKDaylightCalculcatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FKDaylightCalculcatorTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4B2B62C714A8E6BE0003EA38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B2B62CF14A8E6BF0003EA38 /* UIKit.framework in Frameworks */,
+				4B2B62D114A8E6BF0003EA38 /* Foundation.framework in Frameworks */,
+				4B2B62D314A8E6BF0003EA38 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B2B62E114A8E6BF0003EA38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B2B62E714A8E6BF0003EA38 /* SenTestingKit.framework in Frameworks */,
+				4B2B62E814A8E6BF0003EA38 /* UIKit.framework in Frameworks */,
+				4B2B62E914A8E6BF0003EA38 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4B2B62BF14A8E6BE0003EA38 = {
+			isa = PBXGroup;
+			children = (
+				4B2B62D414A8E6BF0003EA38 /* FKDaylightCalculcator */,
+				4B2B62EC14A8E6BF0003EA38 /* FKDaylightCalculcatorTests */,
+				4B2B62CD14A8E6BE0003EA38 /* Frameworks */,
+				4B2B62CB14A8E6BE0003EA38 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4B2B62CB14A8E6BE0003EA38 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4B2B62CA14A8E6BE0003EA38 /* FKDaylightCalculcator.app */,
+				4B2B62E514A8E6BF0003EA38 /* FKDaylightCalculcatorTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4B2B62CD14A8E6BE0003EA38 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4B2B62CE14A8E6BE0003EA38 /* UIKit.framework */,
+				4B2B62D014A8E6BF0003EA38 /* Foundation.framework */,
+				4B2B62D214A8E6BF0003EA38 /* CoreGraphics.framework */,
+				4B2B62E614A8E6BF0003EA38 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4B2B62D414A8E6BF0003EA38 /* FKDaylightCalculcator */ = {
+			isa = PBXGroup;
+			children = (
+				4B2B62DD14A8E6BF0003EA38 /* FKAppDelegate.h */,
+				4B2B62DE14A8E6BF0003EA38 /* FKAppDelegate.m */,
+				4B2B62D514A8E6BF0003EA38 /* Supporting Files */,
+			);
+			path = FKDaylightCalculcator;
+			sourceTree = "<group>";
+		};
+		4B2B62D514A8E6BF0003EA38 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4B2B62D614A8E6BF0003EA38 /* FKDaylightCalculcator-Info.plist */,
+				4B2B62D714A8E6BF0003EA38 /* InfoPlist.strings */,
+				4B2B62DA14A8E6BF0003EA38 /* main.m */,
+				4B2B62DC14A8E6BF0003EA38 /* FKDaylightCalculcator-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4B2B62EC14A8E6BF0003EA38 /* FKDaylightCalculcatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				4B2B62F214A8E6BF0003EA38 /* FKDaylightCalculcatorTests.h */,
+				4B2B62F314A8E6BF0003EA38 /* FKDaylightCalculcatorTests.m */,
+				4B2B62ED14A8E6BF0003EA38 /* Supporting Files */,
+			);
+			path = FKDaylightCalculcatorTests;
+			sourceTree = "<group>";
+		};
+		4B2B62ED14A8E6BF0003EA38 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4B2B62EE14A8E6BF0003EA38 /* FKDaylightCalculcatorTests-Info.plist */,
+				4B2B62EF14A8E6BF0003EA38 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4B2B62C914A8E6BE0003EA38 /* FKDaylightCalculcator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B2B62F714A8E6BF0003EA38 /* Build configuration list for PBXNativeTarget "FKDaylightCalculcator" */;
+			buildPhases = (
+				4B2B62C614A8E6BE0003EA38 /* Sources */,
+				4B2B62C714A8E6BE0003EA38 /* Frameworks */,
+				4B2B62C814A8E6BE0003EA38 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FKDaylightCalculcator;
+			productName = FKDaylightCalculcator;
+			productReference = 4B2B62CA14A8E6BE0003EA38 /* FKDaylightCalculcator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4B2B62E414A8E6BF0003EA38 /* FKDaylightCalculcatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B2B62FA14A8E6BF0003EA38 /* Build configuration list for PBXNativeTarget "FKDaylightCalculcatorTests" */;
+			buildPhases = (
+				4B2B62E014A8E6BF0003EA38 /* Sources */,
+				4B2B62E114A8E6BF0003EA38 /* Frameworks */,
+				4B2B62E214A8E6BF0003EA38 /* Resources */,
+				4B2B62E314A8E6BF0003EA38 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4B2B62EB14A8E6BF0003EA38 /* PBXTargetDependency */,
+			);
+			name = FKDaylightCalculcatorTests;
+			productName = FKDaylightCalculcatorTests;
+			productReference = 4B2B62E514A8E6BF0003EA38 /* FKDaylightCalculcatorTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4B2B62C114A8E6BE0003EA38 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Fabian Kreiser";
+			};
+			buildConfigurationList = 4B2B62C414A8E6BE0003EA38 /* Build configuration list for PBXProject "FKDaylightCalculcator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4B2B62BF14A8E6BE0003EA38;
+			productRefGroup = 4B2B62CB14A8E6BE0003EA38 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4B2B62C914A8E6BE0003EA38 /* FKDaylightCalculcator */,
+				4B2B62E414A8E6BF0003EA38 /* FKDaylightCalculcatorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4B2B62C814A8E6BE0003EA38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B2B62D914A8E6BF0003EA38 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B2B62E214A8E6BF0003EA38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B2B62F114A8E6BF0003EA38 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4B2B62E314A8E6BF0003EA38 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4B2B62C614A8E6BE0003EA38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B2B62DB14A8E6BF0003EA38 /* main.m in Sources */,
+				4B2B62DF14A8E6BF0003EA38 /* FKAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B2B62E014A8E6BF0003EA38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B2B62F414A8E6BF0003EA38 /* FKDaylightCalculcatorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4B2B62EB14A8E6BF0003EA38 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B2B62C914A8E6BE0003EA38 /* FKDaylightCalculcator */;
+			targetProxy = 4B2B62EA14A8E6BF0003EA38 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4B2B62D714A8E6BF0003EA38 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B2B62D814A8E6BF0003EA38 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4B2B62EF14A8E6BF0003EA38 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B2B62F014A8E6BF0003EA38 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4B2B62F514A8E6BF0003EA38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4B2B62F614A8E6BF0003EA38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4B2B62F814A8E6BF0003EA38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FKDaylightCalculcator/FKDaylightCalculcator-Prefix.pch";
+				INFOPLIST_FILE = "FKDaylightCalculcator/FKDaylightCalculcator-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4B2B62F914A8E6BF0003EA38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FKDaylightCalculcator/FKDaylightCalculcator-Prefix.pch";
+				INFOPLIST_FILE = "FKDaylightCalculcator/FKDaylightCalculcator-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		4B2B62FB14A8E6BF0003EA38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FKDaylightCalculcator.app/FKDaylightCalculcator";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FKDaylightCalculcator/FKDaylightCalculcator-Prefix.pch";
+				INFOPLIST_FILE = "FKDaylightCalculcatorTests/FKDaylightCalculcatorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		4B2B62FC14A8E6BF0003EA38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FKDaylightCalculcator.app/FKDaylightCalculcator";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FKDaylightCalculcator/FKDaylightCalculcator-Prefix.pch";
+				INFOPLIST_FILE = "FKDaylightCalculcatorTests/FKDaylightCalculcatorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4B2B62C414A8E6BE0003EA38 /* Build configuration list for PBXProject "FKDaylightCalculcator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B2B62F514A8E6BF0003EA38 /* Debug */,
+				4B2B62F614A8E6BF0003EA38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B2B62F714A8E6BF0003EA38 /* Build configuration list for PBXNativeTarget "FKDaylightCalculcator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B2B62F814A8E6BF0003EA38 /* Debug */,
+				4B2B62F914A8E6BF0003EA38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4B2B62FA14A8E6BF0003EA38 /* Build configuration list for PBXNativeTarget "FKDaylightCalculcatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B2B62FB14A8E6BF0003EA38 /* Debug */,
+				4B2B62FC14A8E6BF0003EA38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4B2B62C114A8E6BE0003EA38 /* Project object */;
+}
