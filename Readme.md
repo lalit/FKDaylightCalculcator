@@ -2,7 +2,7 @@
 
 *FKDaylightCalculator* is a small and easy to use class for your iOS and Mac OS X projects to calculate sunrise and sunset dates.
 
-*FKDaylightCalculator* is based on the algorithm described [here](http://williams.best.vwh.net/sunrise_sunset_algorithm.htm).
+The algorithm used is described [here](http://williams.best.vwh.net/sunrise_sunset_algorithm.htm).
 
 # Installation
 
@@ -29,11 +29,10 @@ You can also check whether the sun is currently shining or not and adjust your i
 
 # FAQ
 
-If you have any questions regarding this project, feel free to contact me.
+* Q: Why does the project use ARC?
+  A: Because ARC is the future.
+* Q: Will there be some kind of notification when the sun goes up or down in a future version of the project?
+  A: This is a nice idea and I might add it soon.
 
 Kind regards,
 Fabian
-
-
-
-

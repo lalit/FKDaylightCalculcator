@@ -100,7 +100,6 @@ typedef NSInteger FKDaylightCalculatorZenith;
  *    A BOOL value that is YES when the sun is visible and NO otherwise.
 */
 
-
 - (BOOL) isSunVisible;
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -

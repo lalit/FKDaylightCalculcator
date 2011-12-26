@@ -17,8 +17,8 @@
 		4B2B62E914A8E6BF0003EA38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2B62D014A8E6BF0003EA38 /* Foundation.framework */; };
 		4B2B62F414A8E6BF0003EA38 /* FKDaylightCalculcatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B2B62F314A8E6BF0003EA38 /* FKDaylightCalculcatorTests.m */; };
 		4B2B62FE14A8E7220003EA38 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2B62FD14A8E7220003EA38 /* CoreLocation.framework */; };
-		4B2B630114A8E7B10003EA38 /* FKDaylightCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B2B630014A8E7B10003EA38 /* FKDaylightCalculator.m */; };
 		4B2B630814A8EDC70003EA38 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2B62FD14A8E7220003EA38 /* CoreLocation.framework */; };
+		4B2B631A14A8FF4B0003EA38 /* FKDaylightCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B2B631914A8FF4B0003EA38 /* FKDaylightCalculator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +47,8 @@
 		4B2B62F214A8E6BF0003EA38 /* FKDaylightCalculcatorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FKDaylightCalculcatorTests.h; sourceTree = "<group>"; };
 		4B2B62F314A8E6BF0003EA38 /* FKDaylightCalculcatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FKDaylightCalculcatorTests.m; sourceTree = "<group>"; };
 		4B2B62FD14A8E7220003EA38 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		4B2B62FF14A8E7B10003EA38 /* FKDaylightCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKDaylightCalculator.h; sourceTree = "<group>"; };
-		4B2B630014A8E7B10003EA38 /* FKDaylightCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKDaylightCalculator.m; sourceTree = "<group>"; };
+		4B2B631814A8FF4B0003EA38 /* FKDaylightCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKDaylightCalculator.h; sourceTree = SOURCE_ROOT; };
+		4B2B631914A8FF4B0003EA38 /* FKDaylightCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKDaylightCalculator.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +113,8 @@
 			children = (
 				4B2B62DD14A8E6BF0003EA38 /* FKAppDelegate.h */,
 				4B2B62DE14A8E6BF0003EA38 /* FKAppDelegate.m */,
-				4B2B62FF14A8E7B10003EA38 /* FKDaylightCalculator.h */,
-				4B2B630014A8E7B10003EA38 /* FKDaylightCalculator.m */,
+				4B2B631814A8FF4B0003EA38 /* FKDaylightCalculator.h */,
+				4B2B631914A8FF4B0003EA38 /* FKDaylightCalculator.m */,
 				4B2B62D514A8E6BF0003EA38 /* Supporting Files */,
 			);
 			path = FKDaylightCalculcator;
@@ -256,7 +256,7 @@
 			files = (
 				4B2B62DB14A8E6BF0003EA38 /* main.m in Sources */,
 				4B2B62DF14A8E6BF0003EA38 /* FKAppDelegate.m in Sources */,
-				4B2B630114A8E7B10003EA38 /* FKDaylightCalculator.m in Sources */,
+				4B2B631A14A8FF4B0003EA38 /* FKDaylightCalculator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +409,7 @@
 				4B2B62F914A8E6BF0003EA38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4B2B62FA14A8E6BF0003EA38 /* Build configuration list for PBXNativeTarget "FKDaylightCalculcatorTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +418,7 @@
 				4B2B62FC14A8E6BF0003EA38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
