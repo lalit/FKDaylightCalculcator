@@ -59,13 +59,14 @@ static NSTimeInterval _kFKDaylightCalculatorUpdateDaylightChangeTimeInterval = 1
         _kFKDaylightCalculatorChangeBlockSet = [[NSMutableSet alloc] init];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillEnterForegroundNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *notification) {
-        [[self class] performSelectorOnMainThread:@selector(_updateDaylightChangeBlocks) withObject:nil waitUntilDone:NO];
+        @synchronized (_kFKDaylightCalculatorChangeBlockSet) {
+            if ([_kFKDaylightCalculatorChangeBlockSet count] > 0)
+                [[self class] performSelectorOnMainThread:@selector(_updateDaylightChangeBlocks) withObject:nil waitUntilDone:NO];
+        }
     }];
     [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidEnterBackgroundNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *notification) {
         [self cancelPreviousPerformRequestsWithTarget:[self class]];
     }];
-    
-    [[self class] performSelectorOnMainThread:@selector(_updateDaylightChangeBlocks) withObject:nil waitUntilDone:NO];
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -90,7 +91,9 @@ static NSTimeInterval _kFKDaylightCalculatorUpdateDaylightChangeTimeInterval = 1
         [_kFKDaylightCalculatorChangeBlockSet addObject:changeBlock];
     }
     
-    [[self class] performSelectorOnMainThread:@selector(_updateDaylightChangeBlocks) withObject:nil waitUntilDone:NO];
+    if ([_kFKDaylightCalculatorChangeBlockSet count] < 2)
+        [[self class] performSelectorOnMainThread:@selector(_updateDaylightChangeBlocks) withObject:nil waitUntilDone:NO];
+    
     return changeBlock.hash;
 }
 
@@ -103,6 +106,9 @@ static NSTimeInterval _kFKDaylightCalculatorUpdateDaylightChangeTimeInterval = 1
             if (changeBlock.hash == tag)
                 [_kFKDaylightCalculatorChangeBlockSet removeObject:changeBlock];
         }
+        
+        if ([_kFKDaylightCalculatorChangeBlockSet count] < 1)
+            [self cancelPreviousPerformRequestsWithTarget:[self class]];
     }
 }
 

@@ -31,7 +31,7 @@ You can also check whether the sun is currently shining or not and adjust your i
 As a nice addition you can also track daylight changes easily using a block-based API:
 
     CLLocation *location;
-    NSUInteger tag = [FKDaylightCalculator addObserverForDaylightChangesWithBlock:^(NSUInteger tag, BOOL isSunVisible) {
+    NSUInteger tag = [FKDaylightCalculator addObserverForDaylightChangesWithBlock:^(BOOL isSunVisible) {
         ...
     } atCoordinate:location.coordinate];
 
