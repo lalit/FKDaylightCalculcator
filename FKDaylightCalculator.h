@@ -53,6 +53,55 @@ typedef NSInteger FKDaylightCalculatorZenith;
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 /*
+ *  addObserverForDaylightChangesWithBlock:atCoordinate:
+ *  addObserverForDaylightChangesWithBlock:atCoordinate:zenith:
+ *
+ *  Discussion:
+ *    Add an observer for daylight changes at a given coordinate with a specifiv value for the zenith. Whenever daylight changes (at sunrise or sunset), the block is executed so you can adjust your interface.
+ *
+ *  Parameters:
+ *    block:
+ *      The block to execute when the daylight changes.
+ *    coordinate:
+ *      The coordinate for the location you want to get daylight information about.
+ *    zenith:
+ *      The zenith parameter you want to use for the calculation. See also: FKDaylightCalculatorZenith.
+*/
+
++ (NSUInteger) addObserverForDaylightChangesWithBlock:(void (^)(NSUInteger tag, BOOL isSunVisible))block atCoordinate:(CLLocationCoordinate2D)coordinate;
++ (NSUInteger) addObserverForDaylightChangesWithBlock:(void (^)(NSUInteger tag, BOOL isSunVisible))block atCoordinate:(CLLocationCoordinate2D)coordinate zenith:(FKDaylightCalculatorZenith)zenith;
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/*
+ *  removeObserverWithTag:
+ *
+ *  Discussion:
+ *    Remove an observer for daylight changes with a given tag. The tag is the return value of one of the addObserverForDaylightChangesWithBlock: methods.
+ *
+ *  Parameters:
+ *    tag:
+ *      The tag of the observer to remove.
+*/
+
++ (void) removeObserverWithTag:(NSUInteger)tag;
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/*
+ *  updateDaylightChangesTimeInterval
+ *  setUpdateDaylightChangesTimeInterval:
+ *
+ *  Discussion:
+ *    Use these methods to get and set the update time interval for daylight changes. The default value is ten minutes.
+*/
+
++ (NSTimeInterval) updateDaylightChangesTimeInterval;
++ (void) setUpdateDaylightChangesTimeInterval:(NSTimeInterval)timeInterval;
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/*
  *  daylightCalculatorWithCoordinate:
  *  daylightCalculatorWithCoordinate:zenith:
  *

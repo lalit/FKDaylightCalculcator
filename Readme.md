@@ -1,6 +1,6 @@
 # FKDaylightCalculator
 
-*FKDaylightCalculator* is a small and easy to use class for your iOS and Mac OS X projects to calculate sunrise and sunset dates.
+*FKDaylightCalculator* is a small and easy to use class for your iOS and Mac OS X projects (*obersving of daylight changes doesn't work on Mac OS X without modification*) to calculate sunrise and sunset dates.
 
 The algorithm used is described [here](http://williams.best.vwh.net/sunrise_sunset_algorithm.htm).
 
@@ -10,8 +10,9 @@ Simply drag *FKDaylightCalculator.h* and *FKDaylightCalculator.m* into your Xcod
 
 # Example
 
-If you want to calculate the time of sunrise at *location*, you do the following:
+If you want to calculate the time of sunrise at a specific location, you do the following:
 
+    CLLocation *location;
     FKDaylightCalculator *daylightCalculator = [FKDaylightCalculator daylightCalculatorWithCoordinate:location.coordinate];
     NSDate *sunriseDate = [daylightCalculator todaysSunrise];
 
@@ -27,12 +28,18 @@ You can also check whether the sun is currently shining or not and adjust your i
         …
     }
 
+As a nice addition you can also track daylight changes easily using a block-based API:
+
+    CLLocation *location;
+    NSUInteger tag = [FKDaylightCalculator addObserverForDaylightChangesWithBlock:^(NSUInteger tag, BOOL isSunVisible) {
+        ...
+    } atCoordinate:location.coordinate];
+
+
 # FAQ
 
 * Q: Why does the project use ARC?
-  A: Because ARC is the future.
-* Q: Will there be some kind of notification when the sun goes up or down in a future version of the project?
-  A: This is a nice idea and I might add it soon.
+  > A: Because ARC is the future.
 
 Kind regards,
 Fabian

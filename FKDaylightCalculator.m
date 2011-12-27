@@ -14,8 +14,31 @@
 #import "FKDaylightCalculator.h"
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#pragma mark -
+#pragma mark Constants
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+static NSMutableSet *_kFKDaylightCalculatorChangeBlockSet = nil;
+static NSTimeInterval _kFKDaylightCalculatorUpdateDaylightChangeTimeInterval = 10;
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+@interface _FKDaylightCalculatorChangeBlock : NSObject
+@property (nonatomic, assign) CLLocationCoordinate2D coordinate;
+@property (nonatomic, assign) FKDaylightCalculatorZenith zenith;
+@property (nonatomic, copy) void (^block)(NSUInteger tag, BOOL isSunVisible);
+@property (nonatomic, copy) NSDate *nextChangeDate;
+@end
+
+@implementation _FKDaylightCalculatorChangeBlock
+@synthesize coordinate, zenith, block, nextChangeDate;
+@end
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 @interface FKDaylightCalculator ()
+
++ (void) _updateDaylightChangeBlocks;
 
 - (NSDate *) dateOfSunriseOrSunset:(BOOL)isSunrise forDate:(NSDate *)gregorianDate;
 
@@ -31,6 +54,92 @@
 #pragma mark Class Methods
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
++ (void) initialize {
+    if (self == [FKDaylightCalculator class])
+        _kFKDaylightCalculatorChangeBlockSet = [[NSMutableSet alloc] init];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillEnterForegroundNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *notification) {
+        [[self class] performSelectorOnMainThread:@selector(_updateDaylightChangeBlocks) withObject:nil waitUntilDone:NO];
+    }];
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidEnterBackgroundNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *notification) {
+        [self cancelPreviousPerformRequestsWithTarget:[self class]];
+    }];
+    
+    [[self class] performSelectorOnMainThread:@selector(_updateDaylightChangeBlocks) withObject:nil waitUntilDone:NO];
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#pragma mark -
+#pragma mark Daylight Change Observing
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
++ (NSUInteger) addObserverForDaylightChangesWithBlock:(void (^)(NSUInteger tag, BOOL isSunVisible))block atCoordinate:(CLLocationCoordinate2D)coordinate {
+    return [self addObserverForDaylightChangesWithBlock:block atCoordinate:coordinate zenith:FKDaylightCalculatorZenithOfficial];
+}
+
++ (NSUInteger) addObserverForDaylightChangesWithBlock:(void (^)(NSUInteger tag, BOOL isSunVisible))block atCoordinate:(CLLocationCoordinate2D)coordinate zenith:(FKDaylightCalculatorZenith)zenith {
+    _FKDaylightCalculatorChangeBlock *changeBlock = [[_FKDaylightCalculatorChangeBlock alloc] init];
+    changeBlock.coordinate = coordinate;
+    changeBlock.zenith = zenith;
+    changeBlock.block = block;
+    
+    FKDaylightCalculator *daylightCalculator = [[self alloc] initWithCoordinate:coordinate zenith:zenith];
+    changeBlock.nextChangeDate = ([daylightCalculator isSunVisible]) ? [daylightCalculator nextSunset] : [daylightCalculator nextSunrise];
+    
+    @synchronized (_kFKDaylightCalculatorChangeBlockSet) {
+        [_kFKDaylightCalculatorChangeBlockSet addObject:changeBlock];
+    }
+    
+    [[self class] performSelectorOnMainThread:@selector(_updateDaylightChangeBlocks) withObject:nil waitUntilDone:NO];
+    return changeBlock.hash;
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
++ (void) removeObserverWithTag:(NSUInteger)tag {
+    @synchronized (_kFKDaylightCalculatorChangeBlockSet) {
+        NSMutableSet *frozenSetCopy = [_kFKDaylightCalculatorChangeBlockSet copy];
+        for (_FKDaylightCalculatorChangeBlock *changeBlock in frozenSetCopy) {
+            if (changeBlock.hash == tag)
+                [_kFKDaylightCalculatorChangeBlockSet removeObject:changeBlock];
+        }
+    }
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
++ (NSTimeInterval) updateDaylightChangesTimeInterval {
+    return _kFKDaylightCalculatorUpdateDaylightChangeTimeInterval;
+}
+
++ (void) setUpdateDaylightChangesTimeInterval:(NSTimeInterval)timeInterval {
+    _kFKDaylightCalculatorUpdateDaylightChangeTimeInterval = timeInterval;
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
++ (void) _updateDaylightChangeBlocks {    
+    @synchronized (_kFKDaylightCalculatorChangeBlockSet) {
+        NSMutableSet *frozenSetCopy = [_kFKDaylightCalculatorChangeBlockSet copy];
+        for (_FKDaylightCalculatorChangeBlock *changeBlock in frozenSetCopy) {
+            if ([changeBlock.nextChangeDate timeIntervalSinceNow] >= 0) {
+                FKDaylightCalculator *daylightCalculator = [[self alloc] initWithCoordinate:changeBlock.coordinate zenith:changeBlock.zenith];
+                BOOL isSunVisible = [daylightCalculator isSunVisible];
+                
+                changeBlock.block(changeBlock.hash, isSunVisible);
+                changeBlock.nextChangeDate = (isSunVisible) ? [daylightCalculator nextSunset] : [daylightCalculator nextSunrise];
+            }
+        }
+    }
+    
+    [[self class] performSelector:@selector(_updateDaylightChangeBlocks) withObject:nil afterDelay:_kFKDaylightCalculatorUpdateDaylightChangeTimeInterval];
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#pragma mark -
+#pragma mark Initializer
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 + (FKDaylightCalculator *) daylightCalculatorWithCoordinate:(CLLocationCoordinate2D)coordinate {
 	return [[self alloc] initWithCoordinate:coordinate];
 }
@@ -39,10 +148,6 @@
     return [[self alloc] initWithCoordinate:coordinate zenith:zenith];
 }
 
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#pragma mark -
-#pragma mark Initializer
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 - (id) initWithCoordinate:(CLLocationCoordinate2D)aCoordinate {
