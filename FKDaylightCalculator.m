@@ -26,7 +26,7 @@ static NSTimeInterval _kFKDaylightCalculatorUpdateDaylightChangeTimeInterval = 1
 @interface _FKDaylightCalculatorChangeBlock : NSObject
 @property (nonatomic, assign) CLLocationCoordinate2D coordinate;
 @property (nonatomic, assign) FKDaylightCalculatorZenith zenith;
-@property (nonatomic, copy) void (^block)(NSUInteger tag, BOOL isSunVisible);
+@property (nonatomic, copy) void (^block)(BOOL isSunVisible);
 @property (nonatomic, copy) NSDate *nextChangeDate;
 @end
 
@@ -73,11 +73,11 @@ static NSTimeInterval _kFKDaylightCalculatorUpdateDaylightChangeTimeInterval = 1
 #pragma mark Daylight Change Observing
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-+ (NSUInteger) addObserverForDaylightChangesWithBlock:(void (^)(NSUInteger tag, BOOL isSunVisible))block atCoordinate:(CLLocationCoordinate2D)coordinate {
++ (NSUInteger) addObserverForDaylightChangesWithBlock:(void (^)(BOOL isSunVisible))block atCoordinate:(CLLocationCoordinate2D)coordinate {
     return [self addObserverForDaylightChangesWithBlock:block atCoordinate:coordinate zenith:FKDaylightCalculatorZenithOfficial];
 }
 
-+ (NSUInteger) addObserverForDaylightChangesWithBlock:(void (^)(NSUInteger tag, BOOL isSunVisible))block atCoordinate:(CLLocationCoordinate2D)coordinate zenith:(FKDaylightCalculatorZenith)zenith {
++ (NSUInteger) addObserverForDaylightChangesWithBlock:(void (^)(BOOL isSunVisible))block atCoordinate:(CLLocationCoordinate2D)coordinate zenith:(FKDaylightCalculatorZenith)zenith {
     _FKDaylightCalculatorChangeBlock *changeBlock = [[_FKDaylightCalculatorChangeBlock alloc] init];
     changeBlock.coordinate = coordinate;
     changeBlock.zenith = zenith;
@@ -126,7 +126,7 @@ static NSTimeInterval _kFKDaylightCalculatorUpdateDaylightChangeTimeInterval = 1
                 FKDaylightCalculator *daylightCalculator = [[self alloc] initWithCoordinate:changeBlock.coordinate zenith:changeBlock.zenith];
                 BOOL isSunVisible = [daylightCalculator isSunVisible];
                 
-                changeBlock.block(changeBlock.hash, isSunVisible);
+                changeBlock.block(isSunVisible);
                 changeBlock.nextChangeDate = (isSunVisible) ? [daylightCalculator nextSunset] : [daylightCalculator nextSunrise];
             }
         }

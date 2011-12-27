@@ -39,7 +39,7 @@ As a nice addition you can also track daylight changes easily using a block-base
 # FAQ
 
 * Q: Why does the project use ARC?
-  > A: Because ARC is the future.
+  A: Because ARC is the future.
 
 Kind regards,
 Fabian

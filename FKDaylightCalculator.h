@@ -68,8 +68,8 @@ typedef NSInteger FKDaylightCalculatorZenith;
  *      The zenith parameter you want to use for the calculation. See also: FKDaylightCalculatorZenith.
 */
 
-+ (NSUInteger) addObserverForDaylightChangesWithBlock:(void (^)(NSUInteger tag, BOOL isSunVisible))block atCoordinate:(CLLocationCoordinate2D)coordinate;
-+ (NSUInteger) addObserverForDaylightChangesWithBlock:(void (^)(NSUInteger tag, BOOL isSunVisible))block atCoordinate:(CLLocationCoordinate2D)coordinate zenith:(FKDaylightCalculatorZenith)zenith;
++ (NSUInteger) addObserverForDaylightChangesWithBlock:(void (^)(BOOL isSunVisible))block atCoordinate:(CLLocationCoordinate2D)coordinate;
++ (NSUInteger) addObserverForDaylightChangesWithBlock:(void (^)(BOOL isSunVisible))block atCoordinate:(CLLocationCoordinate2D)coordinate zenith:(FKDaylightCalculatorZenith)zenith;
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
