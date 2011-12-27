@@ -93,7 +93,7 @@ typedef NSInteger FKDaylightCalculatorZenith;
  *  setUpdateDaylightChangesTimeInterval:
  *
  *  Discussion:
- *    Use these methods to get and set the update time interval for daylight changes. The default value is ten minutes.
+ *    Use these methods to get and set the update time interval for daylight changes. The default value is five minutes.
 */
 
 + (NSTimeInterval) updateDaylightChangesTimeInterval;

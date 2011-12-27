@@ -19,7 +19,7 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 static NSMutableSet *_kFKDaylightCalculatorChangeBlockSet = nil;
-static NSTimeInterval _kFKDaylightCalculatorUpdateDaylightChangeTimeInterval = 10;
+static NSTimeInterval _kFKDaylightCalculatorUpdateDaylightChangeTimeInterval = 5 * 60;
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
